@@ -11,16 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/testes', 'SiteController@index');
 
-Route::get('/filmes', 'FilmeController@index');
+// Route::get('/teste/{nome}/{sobre}', function($x,$y){
 
-Route::get('/filmes/create', 'FilmeController@create');
-Route::post('/filmes/create', 'FilmeController@save');
+//     return 'Olá ' . $x . ' ' . $y;
+
+// });
+
+Route::resource('filmes', 'FilmeController');
+Route::resource('generos', 'GeneroController');
+Route::resource('atores', 'AtorController');
+
 
 
 

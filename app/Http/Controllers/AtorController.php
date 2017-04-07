@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Filme;
+use App\Ator;
 use Illuminate\Http\Request;
 
-class FilmeController extends Controller
+class AtorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,9 @@ class FilmeController extends Controller
      */
     public function index()
     {
-        $filmes = Filme::all();
+        $atores =  Ator::all();
         
-        return view('filmes.index', compact('filmes'));
-    
+        return view('atores.index', compact('atores'));
     }
 
     /**
@@ -27,7 +26,7 @@ class FilmeController extends Controller
      */
     public function create()
     {
-        return view('filmes.create');
+         return view('atores.create');
     }
 
     /**
@@ -38,22 +37,21 @@ class FilmeController extends Controller
      */
     public function store(Request $request)
     {
-        $filme = new Filme();
-        $filme->titulo = $request->titulo;
-        $filme->descricao = $request->descricao;
+        $ator = new Ator();
+        $ator->nome = $request->nome;
+        $ator->ano = $request->ano;
+        $ator->save();
 
-        $filme->save();
-
-        return redirect('/filmes');
+        return redirect('/atores');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Ator  $ator
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Ator $atore)
     {
         //
     }
@@ -61,38 +59,33 @@ class FilmeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Ator  $ator
      * @return \Illuminate\Http\Response
      */
-    public function edit(Filme $filme)
+    public function edit(Ator $atore)
     {
-        return view('filmes.edit', compact('filme'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Ator  $ator
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Filme $filme)
+    public function update(Request $request, Ator $atore)
     {
-        $filme->titulo = $request->titulo;
-        $filme->descricao = $request->descricao;
-
-        $filme->save();
-
-        return redirect('/filmes');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Ator  $ator
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Ator $atore)
     {
         //
     }

@@ -14,24 +14,24 @@
 
     <div class="container">
 
-        <h1 class="page-header">Lista de filmes</h1>
+        <h1 class="page-header">Cadastro de Atores</h1>
 
         <div class="row">
 
             <div class="col-md-6">
 
-                <form method="post" action="/filmes">
+                <form method="post" action="/atores">
 
                     {{csrf_field()}}
 
                     <div class="form-group">
-                        <label for="titulo">Titulo</label>
-                        <input class="form-control" type="text" name="titulo" id="titulo" placeholder="Titulo">
+                        <label for="nome">Nome</label>
+                        <input class="form-control" type="text" name="nome" id="nome" placeholder="Nome">
                     </div>
 
                      <div class="form-group">
-                        <label for="descricao">Descricao</label>
-                        <input class="form-control" type="text" name="descricao" id="descricao" placeholder="Descricao">
+                        <label for="ano">Ano</label>
+                        <input class="form-control" type="text" name="ano" id="ano" placeholder="Ano">
                     </div>
 
                     <button class="btn btn-primary">Enviar</button>

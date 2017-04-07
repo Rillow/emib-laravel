@@ -10,9 +10,9 @@
         
         <div class="container">
 
-        <h1 class="page-header">Lista de filmes</h1>
+        <h1 class="page-header">Lista de Generos</h1>
 
-            <a href="/filmes/create" class="btn btn-primary" style="margin-bottom: 15px;">Cadastrar</a>
+            <a href="/generos/create" class="btn btn-primary" style="margin-bottom: 15px;">Cadastrar</a>
             <div class="row">
 
                 <div class="col-md-6">
@@ -21,24 +21,16 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Titulo</th>
-                                <th>Descrição</th>
-                                <th></th>
+                                <th>Nome</th>
                             </tr>
                         </thead>
                     
                         <tbody>
 
-                            @foreach($filmes as $filme)
+                            @foreach($generos as $genero)
                                 <tr>
-                                    <td>{{$filme->id}}</td>
-                                    <td>{{$filme->titulo}}</td>
-                                    <td>{{$filme->descricao}}</td>
-                                    <td>
-                                        <a class="btn btn-primary" href="/filmes/{{$filme->id}}/edit">
-                                            <span class="glyphicon glyphicon-pencil"></span> Editar
-                                        </a>
-                                    </td>
+                                    <td>{{$genero->id}}</td>
+                                    <td>{{$genero->nome}}</td>
                                 </tr>
                         
                             @endforeach

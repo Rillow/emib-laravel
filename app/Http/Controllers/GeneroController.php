@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Filme;
+use App\Genero;
 use Illuminate\Http\Request;
 
-class FilmeController extends Controller
+class GeneroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,9 @@ class FilmeController extends Controller
      */
     public function index()
     {
-        $filmes = Filme::all();
+        $generos =  Genero::all();
         
-        return view('filmes.index', compact('filmes'));
-    
+        return view('generos.index', compact('generos'));
     }
 
     /**
@@ -27,7 +26,7 @@ class FilmeController extends Controller
      */
     public function create()
     {
-        return view('filmes.create');
+        return view('generos.create');
     }
 
     /**
@@ -38,22 +37,22 @@ class FilmeController extends Controller
      */
     public function store(Request $request)
     {
-        $filme = new Filme();
-        $filme->titulo = $request->titulo;
-        $filme->descricao = $request->descricao;
+        //return $request->all();
 
-        $filme->save();
+        $genero = new Genero();
+        $genero->nome = $request->nome;
+        $genero->save();
 
-        return redirect('/filmes');
+        return redirect('/generos');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Genero  $genero
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Genero $genero)
     {
         //
     }
@@ -61,38 +60,33 @@ class FilmeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Genero  $genero
      * @return \Illuminate\Http\Response
      */
-    public function edit(Filme $filme)
+    public function edit(Genero $genero)
     {
-        return view('filmes.edit', compact('filme'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Genero  $genero
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Filme $filme)
+    public function update(Request $request, Genero $genero)
     {
-        $filme->titulo = $request->titulo;
-        $filme->descricao = $request->descricao;
-
-        $filme->save();
-
-        return redirect('/filmes');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Genero  $genero
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Genero $genero)
     {
         //
     }

@@ -14,27 +14,29 @@
 
     <div class="container">
 
-        <h1 class="page-header">Lista de filmes</h1>
+        <h1 class="page-header">Editar de Filme</h1>
 
         <div class="row">
 
             <div class="col-md-6">
 
-                <form method="post" action="/filmes">
+                <form method="post" action="/filmes/{{$filme->id}}">
 
                     {{csrf_field()}}
 
+                    <input type="hidden" name="_method" value="PUT">
+
                     <div class="form-group">
                         <label for="titulo">Titulo</label>
-                        <input class="form-control" type="text" name="titulo" id="titulo" placeholder="Titulo">
+                        <input class="form-control" type="text" name="titulo" id="titulo" value="{{$filme->titulo}}">
                     </div>
 
                      <div class="form-group">
-                        <label for="descricao">Descricao</label>
-                        <input class="form-control" type="text" name="descricao" id="descricao" placeholder="Descricao">
+                        <label for="descricao">Descrição</label>
+                        <input class="form-control" type="text" name="descricao" id="descricao" value="{{$filme->descricao}}">
                     </div>
 
-                    <button class="btn btn-primary">Enviar</button>
+                    <button class="btn btn-primary">Alterar</button>
                     <a href="/" class="btn btn-default">Voltar</a>
                 </form>    
 
